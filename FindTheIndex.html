@@ -1,0 +1,38 @@
+<!-- Given an array of numbers (assume the array has three or more values, and they are indeed numbers), 
+return an index, if one exists, where the sums of the elements on either side of that index are equal. eg. [2, 3, 4, 4, 1] 
+given the function this array should return index 2 (element with value 4) because the sums on either side are equal (2 + 3 = 4 + 1) -->
+
+<input id="testInput" type="text">
+<button id="calculate" value="Calculate">Calculate
+</button>
+<span id="answer"></span>
+
+<script type="text/javascript">
+document.getElementById('calculate').onclick = function(){
+	var inputText = document.getElementById('testInput').value;
+  var inputArray = inputText.split(' ');
+  var sumleft = parseInt(inputArray[0]);
+  var sumright = parseInt(inputArray[inputArray.length-1]);
+  var leftPointer = 0;
+  var rightPointer = inputArray.length-1;
+  var result=0;
+  document.getElementById('answer').innerHTML = 'Answer is ';
+  while(leftPointer <= rightPointer){
+  	if(sumleft>sumright){
+    rightPointer--;
+    sumright+=parseInt(inputArray[rightPointer]);
+    }
+    else if(sumleft<sumright){
+    leftPointer++;
+   	sumleft+=parseInt(inputArray[leftPointer]);
+    }
+    else{
+    	document.getElementById('answer').innerHTML = leftPointer++;
+    }
+    console.log('sumleft '+sumleft);
+    console.log('sumright '+sumright);
+    console.log('leftPointer '+leftPointer);
+    console.log('rightPointer '+rightPointer);
+  }
+};
+</script>
