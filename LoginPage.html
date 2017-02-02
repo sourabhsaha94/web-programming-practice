@@ -1,0 +1,27 @@
+<div id="form">
+<input type="text" id="username"/>
+<input type="password" id="password"/>
+<button id="login">
+Login
+</button>
+</div>
+
+<script type="text/javascript">
+var credentials = {'username':'sourabh','password':'saha'}
+
+document.getElementById('login').onclick = function(){
+	var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
+  if(username===credentials.username){
+  	if(password===credentials.password){
+    	alert('Login successful');
+    }
+    else{
+    	alert('invalid password');
+    }
+  }
+  else{
+  alert('invalid username');
+  }
+};
+</script>
